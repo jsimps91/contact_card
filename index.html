@@ -10,48 +10,38 @@
 </head>
 <body>
     <div id="wrapper">
-        <form action="">
-            <label for="first_name">First name:</label>
-            <input type="text" id="first_name" name="first_name">
-            <label for="last_name">Last name:</label>
-            <input type="text" id="last_name" name="last_name">
-            <label for="description">Description:</label>
-            <textarea name="description" id="description"></textarea>
-            <input type="submit" value="submit">
-        </form>
-        <div id="contact_card">
-        </div>    
-        <div id="card">
-            <h1 id="first"></h1>
-            <h1 id="last"></h1>
-            
-            
-        </div>  
+        <div id="left">
+            <form action="">
+                <label for="first_name">First name:</label>
+                <input type="text" id="first_name" name="first_name"><br>
+                <label for="last_name">Last name:</label>
+                <input type="text" id="last_name" name="last_name"><br>
+                <label for="description">Description:</label>
+                <textarea name="description" id="description"></textarea><br>
+                <button>Add User</button>
+            </form>
+        </div>
+        <div id="right">
+        </div>        
 
     </div>
 
     <script>
         $(document).ready(function(){
-            $("form").submit(function(){
-                $("#wrapper").append($("#contact_card"));
-                $("#contact_card").css("display", "inline-block");
-                $("contact_card").css("background-color", "yellow");
-                $("#contact_card").append('<h1>'+$("#first_name").val()+'</h1>');
-                $("#contact_card").append('<h1>'+$("#last_name").val()+'</h1>');
-                $("#contact_card").append('<p>Click for description</p>');
-                return false
+               $("form").submit(function(){
+                   var first = $("#first_name").val();
+                   var last = $("#last_name").val();
+                   var desc = $("#description").val();
+                   $("#right").append($("<div id= 'contactCard'><h1>" + first + " " + last+"</h1><p>Click for description!</p> <p id='back'> " + desc +"</p></div>"));
+                   return false;
+               });
+               $(document).on('click', '#contactCard', function(){
+                   $(this).children().toggle();
+               })
 
-                })
+                });
                 
-            })
-            $(document).on("click", "#contact_card", function(){
-                $("#contact_card").append($("#description").val());
-                $("h1").hide();
-                $("p").hide();
-               
-
-                return false
-            });
+        
     
     </script>
     

@@ -1,3 +1,23 @@
-#contact_card{
-    display: none;
+#back{
+    display:none; 
+}
+#contactCard{
+    background-color: lightblue;
+    display: inline-block;
+    width: 300px;
+    height: 200px;
+    text-align: center;
+}
+#left{
+    display: inline-block;
+    vertical-align: top;
+}
+#right{
+    display: inline-block;
+    width: 350px;
+    margin-left: 700px;
+}
+form{
+    vertical-align: top;
+    display: inline-block;
 }
